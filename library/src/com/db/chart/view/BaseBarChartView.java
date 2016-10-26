@@ -16,25 +16,19 @@
 
 package com.db.chart.view;
 
-import java.text.DecimalFormat;
-import java.util.ArrayList;
-
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.support.annotation.ColorInt;
 import android.support.annotation.FloatRange;
 import android.util.AttributeSet;
-import android.util.Log;
 
-import com.db.chart.Tools;
 import com.db.chart.model.ChartSet;
 import com.db.williamchart.R;
 
-import static android.R.attr.value;
+import java.util.ArrayList;
 
 
 /**
@@ -127,7 +121,8 @@ public abstract class BaseBarChartView extends ChartView {
         paint.setTextSize(textSize);
         Paint.FontMetrics fm = paint.getFontMetrics();
         float fFontHeight = fm.descent - fm.ascent;
-        canvas.drawText((int) text + "", startX - paint.getTextSize() - padding, startY + paint.getTextSize() / 2 - (fFontHeight - paint.getTextSize()), paint);
+        canvas.drawText((int) text + "", startX + padding, startY + paint.getTextSize() / 2 - (fFontHeight - paint.getTextSize()), paint);
+
     }
 
 

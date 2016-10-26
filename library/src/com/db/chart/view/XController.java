@@ -22,7 +22,7 @@ import android.graphics.Paint.Align;
 
 
 /**
- * Class responsible to control horizontal measures, positions, yadda yadda.  
+ * Class responsible to control horizontal measures, positions, yadda yadda.
  * If the drawing is requested it will also take care of it.
  */
 public class XController extends AxisController{

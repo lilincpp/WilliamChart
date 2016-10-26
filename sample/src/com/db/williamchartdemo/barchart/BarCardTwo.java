@@ -1,6 +1,5 @@
 package com.db.williamchartdemo.barchart;
 
-import android.animation.PropertyValuesHolder;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Rect;
@@ -15,7 +14,6 @@ import com.db.chart.listener.OnEntryClickListener;
 import com.db.chart.model.Bar;
 import com.db.chart.model.BarSet;
 import com.db.chart.view.HorizontalBarChartView;
-import com.db.chart.view.Tooltip;
 import com.db.chart.view.XController;
 import com.db.chart.view.animation.Animation;
 import com.db.williamchartdemo.CardController;
@@ -34,7 +32,7 @@ public class BarCardTwo extends CardController {
     private final HorizontalBarChartView mChart;
 
     private final String[] mLabels = {"Mon", "Tue", "Wed", "Thu", "Fri"};
-    private final float[][] mValues = {{23f, 34f, 55f, 71f, 98f}, {17f, 26f, 48f, 63f, 94f}};
+    private final float[][] mValues = {{1f, 1f, 55f, 71f, 98f}, {17f, 26f, 48f, 63f, 94f}};
 
 
     public BarCardTwo(CardView card, Context context) {
@@ -121,6 +119,7 @@ public class BarCardTwo extends CardController {
         mChart.setBarSpacing(Tools.fromDpToPx(8));
 
         mChart.setBorderSpacing(0)
+                .setAxisBorderValues(0,98+20)
                 .setXAxis(false)
                 .setYAxis(false)
                 .setLabelsColor(Color.parseColor("#FF8E8A84"))

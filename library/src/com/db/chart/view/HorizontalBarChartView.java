@@ -38,30 +38,33 @@ public class HorizontalBarChartView extends BaseBarChartView {
     private boolean mDrawTextForBarEnd = false;
     private float mEndTextSize = 30;
     private int mEndTextColor = Color.WHITE;
-    private float mEndTextPadding = Tools.fromDpToPx(4);
+    private float mEndTextPadding = Tools.fromDpToPx(2);
 
-    public float getmEndTextSize() {
+    public float getEndTextSize() {
         return mEndTextSize;
     }
 
-    public void setmEndTextSize(float mEndTextSize) {
-        this.mEndTextSize = mEndTextSize;
+    public void setEndTextSize(float endTextSize) {
+        if (endTextSize == 0) {
+            endTextSize = 30;
+        }
+        this.mEndTextSize = endTextSize;
     }
 
-    public int getmEndTextColor() {
+    public int getEndTextColor() {
         return mEndTextColor;
     }
 
-    public void setmEndTextColor(int mEndTextColor) {
-        this.mEndTextColor = mEndTextColor;
+    public void setEndTextColor(int endTextColor) {
+        this.mEndTextColor = endTextColor;
     }
 
-    public float getmEndTextPadding() {
+    public float getEndTextPadding() {
         return mEndTextPadding;
     }
 
-    public void setmEndTextPadding(float mEndTextPadding) {
-        this.mEndTextPadding = mEndTextPadding;
+    public void setmEndTextPadding(float endTextPadding) {
+        this.mEndTextPadding = endTextPadding;
     }
 
     public HorizontalBarChartView(Context context, AttributeSet attrs) {
@@ -113,7 +116,10 @@ public class HorizontalBarChartView extends BaseBarChartView {
 
                 barSet = (BarSet) data.get(j);
                 bar = (Bar) barSet.getEntry(i);
-
+                float endX = bar.getX();
+//                if (ismDrawTextForBarEnd() && bar.getValue() >= mEndTextSize * 3) {
+//                    endX = endX - mEndTextSize * 3;
+//                }
                 // If entry value is 0 it won't be drawn
                 if (!barSet.isVisible() || bar.getValue() == 0)
                     continue;
@@ -135,9 +141,9 @@ public class HorizontalBarChartView extends BaseBarChartView {
                     // Draw positive bar
                     drawBar(canvas,
                             this.getZeroPosition(), offset,
-                            bar.getX(), offset + barWidth);
+                            endX, offset + barWidth);
                     if (mDrawTextForBarEnd) {
-                        drawTextForBarEnd(canvas, data.get(0).getEntry(i).getValue(), bar.getX(), offset + barWidth / 2, mEndTextSize, mEndTextPadding, mEndTextColor);
+                        drawTextForBarEnd(canvas, data.get(0).getEntry(i).getValue(), endX, offset + barWidth / 2, mEndTextSize, mEndTextPadding, mEndTextColor);
                     }
                 } else
                     // Draw negative bar
