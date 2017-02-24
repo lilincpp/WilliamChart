@@ -19,14 +19,9 @@ Check the [javadoc][7] and [wiki][5] for further documentation.
    compile 'com.diogobernardino:williamchart:2.2'
 ```
 
-If you find this library useful and decide to use it in your projects please drop me a line [@dfbernardino][6].
 
 ![Demo2][1]
 
-<a href="https://play.google.com/store/apps/details?id=com.db.williamchartdemo"><img alt="Android app on Google Play" src="https://developer.android.com/images/brand/en_app_rgb_wo_45.png" />
-</a>
-
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-WilliamChart-lightgrey.svg?style=flat)](https://android-arsenal.com/details/1/769)
 
 
 License
